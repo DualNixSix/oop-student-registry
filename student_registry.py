@@ -55,10 +55,10 @@ class Student:
     
     def advance (self, advancedgrade):
         valid = ["9th", "10th", "11th", "12th"]  
-        if advancedgrade in valid:
+        if advancedgrade in valid and not advancedgrade == self.grade and not advancedgrade < self.grade:
             return f"{self._name} has advanced to {advancedgrade} grade."
         else:
-            print("Error: Grade must be between 9th and 12th grade.")
+            print("Error: Grade must be between 9th - 12th grade and not be less than or equal to current grade.")
 
     def study (self, subject):
         if type(subject) == str and subject.isalpha():
@@ -66,7 +66,3 @@ class Student:
         else:
             print("Error: Subject must be a valid subject made up of letters.")
         
-student1 = Student("Alice")
-print(student1)
-print(student1.advance("12th"))
-print(student1.study("History"))
